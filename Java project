@@ -1,0 +1,46 @@
+import java.lang.Math;
+import java.util.Scanner;
+public class Hiclass {
+	//define a method to get a random character
+	static int Method (int cha) {
+	    int random_cha = (int)(Math.random() * (cha + 1));
+	    return random_cha;}
+    public static void main(String[] args) {
+        Scanner ScanA = new Scanner(System.in);
+        //set difficulty with all the characters user writes
+        System.out.println("Easy,Hard?");
+        String user_diff = ScanA.nextLine();
+        char difficulty = user_diff.charAt(0);
+        //default chance
+        int chance = 20;
+        if (difficulty == 'Eazy') {
+        	chance = 10;}
+        else if (difficulty == 'Hard'){
+        	chance = 10;}
+        System.out.println("a random character from a to z");
+        int result = Method(20);
+        System.out.println("guess a character");
+        //guess until out of chance
+        while (chance != 0){
+        	int guess = ScanA.nextInt();
+        	//if guess character is smaller than random character, retry
+            if (guess < result){
+                System.out.println("small");
+                chance--;
+                System.out.println(chance + " time left"); }
+            //if guess character is bigger than random character, retry
+            else if (guess > result){
+                System.out.println("big");
+                chances--;
+                System.out.println(chance + " time left");}
+            //if guess character is same with random character, print win
+            else{
+                System.out.println("vicotry");
+                break;}
+            //if user out of chance, print lost
+            if (chance == 0){
+            	System.out.println("you lost");
+            }
+        }
+    }
+}
